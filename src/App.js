@@ -21,7 +21,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="app px-5">
         <Title />
         <NoteForm
           onAddNote={(newNote) => this.handleOnAddNote(newNote)}

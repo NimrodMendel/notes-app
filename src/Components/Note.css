@@ -1,0 +1,10 @@
+.card {
+    height: 10rem;
+    border: 1px solid;
+    box-shadow: 5px 5px 5px #888888;
+}
+
+.card-button {
+    align-items: center;
+    justify-content: center;
+}
