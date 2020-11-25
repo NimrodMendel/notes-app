@@ -20,10 +20,15 @@ class App extends React.Component {
   }
 
   handleDeleteNote(noteToDelete) {
-    this.setState((state) => ({
-      ...state,
-      notes: this.state.notes.filter((item, index) => index !== noteToDelete),
-    }));
+    const decision = window.confirm(
+      "Are you sure you want to delete this note?"
+    );
+    if (decision) {
+      this.setState((state) => ({
+        ...state,
+        notes: this.state.notes.filter((item, index) => index !== noteToDelete),
+      }));
+    }
   }
 
   render() {
