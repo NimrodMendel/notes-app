@@ -2,9 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-import Note from "./NotesList";
 import "./NoteForm.css";
 
 class NoteForm extends React.Component {
@@ -12,23 +10,29 @@ class NoteForm extends React.Component {
     super(props);
     this.state = {
       value: "",
+      noteTitle: "",
     };
   }
 
   onSubmit(event) {
-    event.preventDefault();
-    const newNote = {
+    event.preventDefault(); // prevent page refreshing
+    const newNote = { //  Create new note with title, value and date 
+      title: this.state.title,
       value: this.state.value,
       dateCreated: new Date().toLocaleString(),
     };
-    this.setState((state) => {
-      return { value: "" };
+    this.setState((state) => {  //  Delete content after submitting form
+      return { value: "", noteTitle: "" };
     });
-    this.props.onAddNote(newNote);
+    this.props.onAddNote(newNote);  //  Add note to note container
   }
 
-  handleChange(event) {
+  handleChangeNote(event) {
     this.setState({ value: event.target.value });
+  }
+
+  handleChangeTitle(event) {
+    this.setState({ noteTitle: event.target.value });
   }
 
   render() {
@@ -36,12 +40,23 @@ class NoteForm extends React.Component {
       <Container fluid>
         <Form onSubmit={(event) => this.onSubmit(event)}>
           <Row className="justify-content-center">
+            <Form.Label>Title: </Form.Label>
+            <Form.Group controlId="note-title">
+              <Form.Control
+                value={this.state.noteTitle}
+                onChange={(event) => this.handleChangeTitle(event)}
+                as="input"
+                cols={50}
+                placeholder="Title"
+              />
+            </Form.Group>
+          </Row>
+          <Row className="justify-content-center">
             <Form.Group controlId="note-text">
-              <Form.Label>Add a Note: </Form.Label>
               <Form.Control
                 value={this.state.value}
-                onChange={(event) => this.handleChange(event)}
-                className="text-area"
+                onChange={(event) => this.handleChangeNote(event)}
+                className="text-area mt-3"
                 as="textarea"
                 placeholder="Write your note..."
                 rows={5}

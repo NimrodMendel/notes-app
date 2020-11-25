@@ -19,6 +19,13 @@ class App extends React.Component {
     });
   }
 
+  handleDeleteNote(noteToDelete) {
+    this.setState((state) => ({
+      ...state,
+      notes: this.state.notes.filter((item, index) => index !== noteToDelete),
+    }));
+  }
+
   render() {
     return (
       <div className="app px-5">
@@ -29,6 +36,9 @@ class App extends React.Component {
         <NotesList
           className="justify-content-center"
           notes={this.state.notes}
+          handleDeleteNote={(noteToDelete) =>
+            this.handleDeleteNote(noteToDelete)
+          }
         />
       </div>
     );
