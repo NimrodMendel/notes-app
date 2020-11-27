@@ -1,15 +1,15 @@
-.card {
-    height: 10rem;
+.card { 
     border: 1px solid;
-    box-shadow: 5px 5px 5px #888888;
-    background-color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 5px #111111;
+    background-color: #f5f895;
     border-radius: 15px;
-    
+    margin: 3rem 2rem 3rem 2rem;
+    width: auto;
+    padding: 1rem;
 }
 
 .card-button {
-    align-items: center;
-    justify-content: center;
+    margin-top: 2rem;
 }
 
 .card-text {

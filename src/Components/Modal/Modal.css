@@ -1,0 +1,12 @@
+.modal {
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}

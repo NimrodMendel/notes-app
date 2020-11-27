@@ -1,0 +1,23 @@
+.form-container {
+    margin-top: 2rem;
+}
+
+
+.text-area, .note-title {
+    border: 1px solid black;
+    box-shadow: 2px 2px 2px #888888;
+    resize: none;
+    width: 75%;
+}
+
+.button-icon {
+    margin-left: 0.5rem;
+}
+
+
+.text-label {
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
+    color: #393e46;
+    font-weight: bold;
+}
